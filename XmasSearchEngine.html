@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎄 North Pole Custom Search</title>
+    <!-- Load Tailwind CSS for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Define a festive color palette and custom styling */
+        :root {
+            --christmas-red: #B22222; /* Firebrick */
+            --christmas-green: #006400; /* Dark Green */
+            --christmas-light: #F0FFF0; /* Honeydew */
+            --christmas-text: #2F4F4F; /* Dark Slate Gray */
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--christmas-light);
+            color: var(--christmas-text);
+            padding: 20px;
+            /* Simple repeating snowflake background */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"><text x="25" y="25" font-size="15" text-anchor="middle" dominant-baseline="central">❄️</text></svg>');
+            background-repeat: repeat;
+        }
+
+        /* --- Custom Styling for Google CSE Elements --- */
+        /* Overriding some Google CSE styles to fit the theme */
+        
+        /* Style the search button */
+        input.gsc-search-button, button.gsc-search-button {
+            background-color: var(--christmas-red) !important;
+            border-color: var(--christmas-red) !important;
+            color: white !important;
+            height: auto !important;
+            border-radius: 0.5rem !important; /* Tailwind rounded-lg */
+            transition: background-color 0.2s;
+        }
+        
+        input.gsc-search-button:hover, button.gsc-search-button:hover {
+            background-color: #8B0000 !important; /* Darker red on hover */
+        }
+        
+        /* Style the search input border */
+        .gsc-input-box {
+            border: 2px solid var(--christmas-green) !important;
+            border-radius: 0.5rem !important; /* Tailwind rounded-lg */
+        }
+
+        /* Style the search results links (to match Christmas green) */
+        .gs-webResult .gs-title a.gs-title:link,
+        .gs-webResult .gs-title a.gs-title:link b,
+        .gs-webResult .gs-title a.gs-title:visited,
+        .gs-webResult .gs-title a.gs-title:visited b {
+            color: var(--christmas-green) !important;
+        }
+
+        /* Ensure the input field has rounded corners */
+        .gsc-input {
+            border-radius: 0.5rem !important; 
+        }
+
+    </style>
+</head>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-8 text-center" 
+            style="color: var(--christmas-red); text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);">
+            ✨ The Elves' Christmas Search Console ✨
+        </h1>
+
+        <!-- The "Canvas" Container for the CSE -->
+        <div id="christmas-canvas" class="bg-white p-6 md:p-10 rounded-xl shadow-2xl border-4 border-dashed" 
+             style="border-color: var(--christmas-green);">
+            
+            <p class="text-lg mb-6 text-center italic" style="color: var(--christmas-text);">
+                A special gift from Santa's Workshop! Search for everything festive.
+            </p>
+            
+            <!-- Google Custom Search Engine (CSE) Integration -->
+            <!-- Note: The CSE controls the search box and results. To ensure links open in a new tab, -->
+            <!-- you must set the "Links Open in New Window" setting in your Google CSE configuration. -->
+            <script async src="https://cse.google.com/cse.js?cx=00c43c37b85874aa1"></script>
+            <div class="gcse-search"></div> 
+            <!-- End of CSE Code -->
+
+        </div>
+
+        <!-- Section for demonstrating target="_blank" on manual links -->
+        <div class="mt-12 p-6 bg-white rounded-lg shadow-xl" style="border: 2px solid var(--christmas-red);">
+            <h2 class="text-2xl font-bold mb-4 text-center" style="color: var(--christmas-red);">
+                Guaranteed New Tab Links
+            </h2>
+            <p class="text-center mb-4" style="color: var(--christmas-text);">
+                These links use the <code>target="_blank"</code> attribute to guarantee opening in a new tab:
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="https://en.wikipedia.org/wiki/Christmas" target="_blank" 
+                   class="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-200">
+                    📚 Read About Christmas History
+                </a>
+                <a href="https://www.allrecipes.com/recipes/777/holidays-and-events/christmas/" target="_blank" 
+                   class="bg-red-600 hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-full shadow-lg transition duration-200">
+                    🍪 Find Holiday Recipes
+                </a>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
